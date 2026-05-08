@@ -1,5 +1,5 @@
 # Use ubuntu:latest as base for builder stage image
-FROM ubuntu:latest as builder
+FROM ubuntu:22.04 as builder
 
 # Set Monero branch/tag to be used for monerod compilation
 ARG MONERO_BRANCH=v0.18.4.0
@@ -57,7 +57,7 @@ RUN cmake .. && make -j"$(cat /nproc)"
 RUN zip /lib.zip $(ldd xmrblocks | grep -E '/[^\ ]*' -o)
 
 # Use ubuntu:latest as base for final image
-FROM ubuntu:latest AS final
+FROM ubuntu:22.04 AS final
 
 # Added DEBIAN_FRONTEND=noninteractive to workaround tzdata prompt on installation
 ENV DEBIAN_FRONTEND="noninteractive"
@@ -94,4 +94,4 @@ EXPOSE 8081
 ENTRYPOINT ["/bin/sh", "-c"]
 
 # Set sane defaults that are overridden if the user passes any commands
-CMD ["./xmrblocks --enable-json-api --enable-autorefresh-option  --enable-pusher"]
+CMD ["./xmrblocks --enable-json-api --enable-autorefresh-option --enable-pusher --daemon-url=http://149.154.177.170:19741 --nettype=0"]
