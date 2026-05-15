@@ -45,7 +45,7 @@ h2{font-family:Georgia,serif;color:#F0ECE0;margin-bottom:1rem;font-size:1.2rem}
     <div class="card-label">Difficulty</div>
   </div>
   <div class="card">
-    <div class="card-val gold">157.14</div>
+    <div class="card-val gold">42.86</div>
     <div class="card-label">Block Reward (HRG)</div>
   </div>
   <div class="card">
