@@ -1,8 +1,8 @@
 from flask import Flask, render_template_string, jsonify
-import requests, json
+import os, requests, json
 
 app = Flask(__name__)
-DAEMON = "http://149.154.177.170:19741/json_rpc"
+DAEMON = os.environ.get("HRG_DAEMON_RPC", "http://149.154.177.197:19741/json_rpc")
 
 def rpc(method, params={}):
     try:
@@ -33,7 +33,7 @@ h2{font-family:Georgia,serif;color:#F0ECE0;margin-bottom:1rem;font-size:1.2rem}
 </style>
 </head><body>
 <h1>HIDERING</h1>
-<div class="sub">HRG Block Explorer · Mainnet</div>
+<div class="sub">HRG Block Explorer · Mainnet · v2.0.0</div>
 
 <div class="cards">
   <div class="card">
