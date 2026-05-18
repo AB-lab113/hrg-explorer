@@ -2,7 +2,7 @@ from flask import Flask, render_template_string, jsonify
 import os, requests, json
 
 app = Flask(__name__)
-DAEMON = os.environ.get("HRG_DAEMON_RPC", "http://seed1.hidering.org:19741/json_rpc")
+DAEMON = os.environ.get("HRG_DAEMON_RPC", "http://135.125.243.137:19741/json_rpc")
 
 def rpc(method, params={}):
     try:
